@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:comboboxsample="clr-namespace:ShellSfComboBoxSample.ComboBoxSample"
+    xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" xmlns:etc="clr-namespace:ToDoIt.Infrustructure.MVVM"
+    x:Class="ShellSfComboBoxSample.ComboBoxSample.ComboBoxPage">
+    <ContentPage.BindingContext>
+        <comboboxsample:ComboBoxViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <etc:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}"/>
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <combobox:SfComboBox DataSource="{Binding Fruits}" SelectedItem="{Binding SelectedFruit, Mode=OneWayToSource}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
